@@ -1,9 +1,123 @@
 @import "tailwindcss";
 
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#__next {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Light theme (default) */
 :root {
+  /* Base colors */
+  --preloader-background: #bfbfbf;
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Navbar */
+  --navbar-bg: rgba(81, 79, 79, 0.3);
+  --navbar-text: #000000;
+  --navbar-text-active: #000000;
+  --navbar-text-hover: #151515;
+  --navbar-indicator: rgba(0, 0, 0, 0.6);
+  --navbar-indicator-hover: rgba(255, 255, 255, 0.8);
+  
+  /* Brand colors for light theme */
+  --primary: #1e40af;
+  --primary-hover: #1e3a8a;
+  --secondary: #7c3aed;
+  --accent: #06b6d4;
+  
+  /* Text colors */
+  --text-primary: #171717;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-inverted: #ffffff;
+  
+  /* Background colors */
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9fafb;
+  --bg-muted: #f8fafc;
+  --bg-gradient-from: #eff6ff;
+  --bg-gradient-to: #f3f4f6;
+  --bg-success: #dcfce7;
+  
+  /* Border colors */
+  --border-primary: #e5e7eb;
+  --border-secondary: #d1d5db;
+  --border-accent: #93c5fd;
+  
+  /* Status colors */
+  --success: #16a34a;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #2563eb;
 }
+
+/* Dark theme - применяется ТОЛЬКО когда есть класс dark */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  
+  /* Navbar */
+  --navbar-bg: rgba(81, 79, 79, 0.3);
+  --navbar-text: #ffffff;
+  --navbar-text-active: #ffffff;
+  --navbar-text-hover: #d4d4d4;
+  --navbar-indicator: rgb(255, 255, 255);
+  --navbar-indicator-hover: rgba(255, 255, 255, 0.8);
+  
+  /* Brand colors for dark theme */
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --secondary: #a855f7;
+  --accent: #22d3ee;
+  
+  /* Text colors */
+  --text-primary: #ededed;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --text-inverted: #0a0a0a;
+  
+  /* Background colors */
+  --bg-card: #1f2937;
+  --bg-card-hover: #374151;
+  --bg-muted: #111827;
+  --bg-gradient-from: #1e3a8a;
+  --bg-gradient-to: #1f2937;
+  --bg-success: #064e3b;
+  
+  /* Border colors */
+  --border-primary: #374151;
+  --border-secondary: #4b5563;
+  --border-accent: #3b82f6;
+  
+  /* Status colors */
+  --success: #22c55e;
+  --warning: #eab308;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+/* Убираем автоматическое определение системной темы через media query */
+/* Теперь тема определяется ТОЛЬКО через класс dark */
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +126,35 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Custom utility classes using CSS variables */
+.bg-card {
+  background-color: var(--bg-card);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.bg-muted {
+  background-color: var(--bg-muted);
+}
+
+.bg-gradient-custom {
+  background: linear-gradient(135deg, var(--bg-gradient-from), var(--bg-gradient-to));
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.border-custom {
+  border-color: var(--border-primary);
+}
+
+.border-custom-secondary {
+  border-color: var(--border-secondary);
 }

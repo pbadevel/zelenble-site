@@ -1,0 +1,34 @@
+"use client";
+
+import Particles from "./particles";
+import { useEffect, useState } from "react";
+
+const Background = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="w-full h-screen fixed top-0 left-0 bottom-0 right-0 z-[-10] bg-white dark:bg-black" />
+    );
+  }
+
+  return (
+    <div className="w-full h-screen fixed top-0 left-0 bottom-0 right-0 z-[-10] bg-[var(--background)] transition-colors duration-300">
+      <Particles
+        particleColors={["#fcfcfc", "#006000", "#2e527a5a"]}
+        particleCount={1000}
+        particleSpread={8}
+        speed={0.1}
+        particleBaseSize={50}
+        alphaParticles={false}
+        disableRotation={false}
+      />
+    </div>
+  );
+};
+
+export default Background;
