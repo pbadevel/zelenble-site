@@ -39,29 +39,29 @@ const AdvancedPageLoader = ({ children }: { children: React.ReactNode }) => {
   if (isLoading) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-[var(--background)] z-50 transition-opacity duration-500">
-        <div className="text-center">
-          <Loader />
-        </div>
+        <div className="text-center"> 
+          {/* <Loader /> */}
+        {/* </div> */}
+            {/* Анимированные точки */}
+            <div className="flex justify-center space-x-1 mb-6">
+              <div className="w-3 h-3 bg-[var(--foreground)] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+              <div className="w-3 h-3 bg-[var(--foreground)] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+              <div className="w-3 h-3 bg-[var(--foreground)] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+            </div>
+            
+            {/* Прогресс бар */}
+            <div className="w-64 h-1 bg-gray-300 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-[var(--foreground)] transition-all duration-300 ease-out"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+            
+            <p className="text-[var(--foreground)] text-sm mt-4">
+              {process.env.NEXT_PUBLIC_COMPANY_NAME}
+            </p>
+          </div>
       </div> 
-      //     {/* Анимированные точки */}
-      //     <div className="flex justify-center space-x-1 mb-6">
-      //       <div className="w-2 h-2 bg-[var(--foreground)] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-      //       <div className="w-2 h-2 bg-[var(--foreground)] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-      //       <div className="w-2 h-2 bg-[var(--foreground)] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-      //     </div>
-          
-      //     {/* Прогресс бар */}
-      //     <div className="w-64 h-1 bg-gray-300 rounded-full overflow-hidden">
-      //       <div 
-      //         className="h-full bg-[var(--foreground)] transition-all duration-300 ease-out"
-      //         style={{ width: `${progress}%` }}
-      //       ></div>
-      //     </div>
-          
-      //     <p className="text-[var(--foreground)] text-sm mt-4">
-      //       {process.env.NEXT_PUBLIC_COMPANY_NAME}
-      //     </p>
-      //   </div>
       // </div>
     );
   }

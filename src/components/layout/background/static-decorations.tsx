@@ -1,5 +1,7 @@
-// components/layout/static-decorations.tsx
 'use client';
+
+import Helper from "../helper";
+
 
 export const StaticDecorations = () => {
     return (
@@ -42,6 +44,7 @@ export const StaticDecorations = () => {
                     </div>
                 </div>
             </div>
+            <Helper />
         </>
     );
 };

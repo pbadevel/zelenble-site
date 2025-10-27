@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full m-0 p-0`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-[var(--background)] antialiased h-full m-0 p-0`}
       >
         <PageLoader>
           <UpNavBar />
