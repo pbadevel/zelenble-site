@@ -8,18 +8,16 @@ export const StaticDecorations = () => {
         <>
             <div className="z-[-9] fixed inset-0 pointer-events-none">
                 {/* Горизонтальные линии */}
-                <div className="absolute top-1/3 left-0 right-0 h-px bg-white/10"></div>
+                {/* <div className="absolute top-1/3 left-0 right-0 h-px bg-white/10"></div>
                 <div className="absolute top-2/3 left-0 right-0 h-px bg-white/10"></div>
                 
-                {/* Вертикальные линии */}
                 <div className="absolute left-1/3 top-0 bottom-0 w-px bg-white/10"></div>
                 <div className="absolute left-2/3 top-0 bottom-0 w-px bg-white/10"></div>
                 
-                {/* Угловые акценты */}
                 <div className="absolute top-8 left-8 w-16 h-16 border-t border-l border-white/20"></div>
                 <div className="absolute top-8 right-8 w-16 h-16 border-t border-r border-white/20"></div>
                 <div className="absolute bottom-8 left-8 w-16 h-16 border-b border-l border-white/20"></div>
-                <div className="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-white/20"></div>
+                <div className="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-white/20"></div> */}
 
                 {/* Копирайт */}
                 <div className="absolute bottom-8 left-8 opacity-0 animate-fade-in-slow">

@@ -1,90 +1,91 @@
 'use client';
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-const texts = process.env.NEXT_PUBLIC_SLOGANS?.split('|').filter(Boolean) || [];
+// Тестовые данные
+const texts = [" ДОБРО ПОЖАЛОВАТЬ", " WELCOME", " AXONISIUM"];
 
 export const CompanyInfo = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isVisible, setIsVisible] = useState(false);
-    
+    const [displayedText, setDisplayedText] = useState("");
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    const currentText = texts[currentIndex];
+
     useEffect(() => {
-        let intervalId: NodeJS.Timeout
-        const startAnimation = () => {
-            setIsVisible(true);
-            
-            // Текст держится 3 секунды, затем исчезает
-            const hideTimer = setTimeout(() => {
-                setIsVisible(false);
-                
-                // Через 1 секунду после исчезновения показываем следующий текст
-                const nextTimer = setTimeout(() => {
-                    setCurrentIndex(prev => (prev + 1) % texts.length);
-                    // Запускаем анимацию снова для нового текста
-                    startAnimation();
-                }, 1000);
-                
-                return () => clearTimeout(nextTimer);
-            }, 3000);
-            
-            return () => clearTimeout(hideTimer);
-        };
+        let currentLength = 0;
+        setDisplayedText("");
+        setIsAnimating(true);
 
-        startAnimation();
-        
-        return () => {
-            if (intervalId!) clearInterval(intervalId);
-        };
+        const typeWriter = setInterval(() => {
+            if (currentLength < currentText.length) {
+                setDisplayedText(prev => {
+                    if (currentText[currentLength] == undefined) return prev;
+                    return prev + currentText[currentLength]
+                });
+                currentLength++;
+            } else {
+                clearInterval(typeWriter);
+                // Ждем немного перед сменой текста
+                setTimeout(() => {
+                    setIsAnimating(false);
+                    setTimeout(() => {
+                        setCurrentIndex(prev => (prev + 1) % texts.length);
+                    }, 1000);
+                }, 2000);
+            }
+        }, 100);
 
-    }, [currentIndex]); // Зависимость от currentIndex чтобы перезапускать при смене текста
+        return () => clearInterval(typeWriter);
+    }, [currentText]);
 
     return (
-        <div className="w-full h-screen bg-transparent overflow-hidden">
-            {/* Основной контент */}
-            <div className="w-full h-full flex items-center justify-center px-4">
-                <div className="text-center w-full">
-                    <div className="relative h-20 md:h-24 lg:h-28 overflow-hidden flex items-center justify-center">
-                        {/* Анимированный текст */}
-                        <div
-                            className={`absolute transition-all duration-500 ease-in-out ${
-                                isVisible 
-                                    ? 'translate-y-0 opacity-100' 
-                                    : '-translate-y-8 opacity-0'
-                            }`}
-                        >
-                            <h1 className="text-2xl md:text-3xl lg:text-4xl font-thin text-[var(--foreground)] tracking-widest uppercase text-center">
-                                {texts[currentIndex]}
-                            </h1>
-                        </div>
-                    </div>
-
-                    <div className="opacity-0 animate-pulse-in mt-8">
-                        <div className="w-24 h-px bg-[var(--text-color)] mx-auto"></div>
-                    </div>
+        <div className="w-full h-screen flex items-center justify-center">
+            <div className="text-center">
+                <div className="h-20 flex items-center justify-center">
+                    <h1 className="text-4xl font-light text-white tracking-widest uppercase">
+                        {displayedText.split('').map((letter, index) => {
+                            return (
+                            <span
+                                key={index}
+                                className="inline-block animate-glow"
+                                style={{
+                                    animationDelay: `${index * 0.02}s`,
+                                    textShadow: '0 0 10px rgba(255,255,255,1)'
+                                }}
+                            >
+                                {letter === ' '  ? '\u00A0' : letter}
+                            </span>
+                            )})}
+                    </h1>
                 </div>
+                
+                {/* Разделительная линия */}
+                <div className="w-24 h-px bg-white mx-auto mt-8 opacity-50 animate-pulse"></div>
+
+                <style jsx>{`
+                    @keyframes glow {
+                        0% {
+                            opacity: 0;
+                            transform: scale(0.8);
+                            text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+                        }
+                        50% {
+                            opacity: 1;
+                            transform: scale(1.1);
+                            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+                        }
+                        100% {
+                            opacity: 1;
+                            transform: scale(1);
+                            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+                        }
+                    }
+                    .animate-glow {
+                        animation: glow 0.6s ease-out forwards;
+                    }
+                `}</style>
             </div>
-
-
-            <style jsx>{`
-                @keyframes pulse-in {
-                    0% { opacity: 0; transform: scaleX(0); }
-                    100% { opacity: 1; transform: scaleX(1); }
-                }
-                
-                @keyframes fade-in-slow {
-                    0% { opacity: 0; }
-                    100% { opacity: 1; }
-                }
-
-                .animate-pulse-in {
-                    animation: pulse-in 1.5s ease-out 1s forwards;
-                }
-                
-                .animate-fade-in-slow {
-                    animation: fade-in-slow 2s ease-out 1.5s forwards;
-                }
-            `}</style>
         </div>
     );
 };
-

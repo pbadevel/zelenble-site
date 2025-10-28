@@ -101,6 +101,15 @@ const UpNavBar = () => {
               </Link>
             </div>
 
+            {/* Catalog */}
+            <div className="flex justify-center px-10 flex-1 lg:flex-none max-xl:hidden">
+              <Link href="/catalog" className="flex items-center">
+                <h1 className='text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
+                  Каталог
+                </h1>
+              </Link>
+            </div>
+
             {/* Left Navigation - Desktop */}
             <nav className="max-md:hidden md:flex items-center gap-4 max-md:gap-8 xl:gap-14 flex-1">
               <Link href="#solutions" className="transition-colors duration-200 hover:text-[var(--navbar-text-hover)] font-medium">
@@ -174,11 +183,10 @@ const UpNavBar = () => {
                 {/* Mobile Navigation */}
                 <nav className="flex flex-col space-y-2 flex-1 bg-[var(--navbar-bg)]">
                   {[
-                    { href: '#solutions', label: 'Решения' },
-                    { href: '#technology', label: 'Технологии' },
-                    { href: '#security', label: 'Безопасность' },
-                    { href: '#partners', label: 'Партнеры' },
-                    { href: '#news', label: 'Новости' },
+                    { href: '#devices', label: 'Устройства' },
+                    { href: '#platform', label: 'Платформа' },
+                    { href: '#medicine', label: 'Для врачей' },
+                    { href: '#about', label: 'О нас' },
                   ].map((item, index) => (
                     <Link 
                       key={index}

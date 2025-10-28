@@ -40,7 +40,7 @@ export const ThemeSwitcher = () => {
     // Рендерим плейсхолдер пока тема не определена
     return (
       <label className="inline-flex items-center relative cursor-pointer">
-        <div className="relative w-[110px] h-[50px] bg-gray-300 rounded-full animate-pulse"></div>
+        <div className="relative w-[80px] h-[40px] bg-gray-300 rounded-full animate-pulse"></div>
       </label>
     );
   }
@@ -55,7 +55,7 @@ export const ThemeSwitcher = () => {
         onChange={toggleTheme}
       />
       <div
-        className="relative w-[110px] h-[50px] bg-white peer-checked:bg-zinc-500 rounded-full after:absolute after:content-[''] after:w-[40px] after:h-[40px] after:bg-gradient-to-r from-orange-500 to-yellow-400 peer-checked:after:from-zinc-900 peer-checked:after:to-zinc-900 after:rounded-full after:top-[5px] after:left-[5px] active:after:w-[50px] peer-checked:after:left-[105px] peer-checked:after:translate-x-[-100%] shadow-sm duration-300 after:duration-300 after:shadow-md"
+        className="relative w-[110px] h-[40px] bg-white peer-checked:bg-zinc-500 rounded-full after:absolute after:content-[''] after:w-[37px] after:h-[30px] after:bg-gradient-to-r from-orange-500 to-yellow-400 peer-checked:after:from-zinc-900 peer-checked:after:to-zinc-900 after:rounded-full after:top-[5px] after:left-[5px] active:after:w-[50px] peer-checked:after:left-[104px] peer-checked:after:translate-x-[-100%] shadow-sm duration-300 after:duration-300 after:shadow-md"
       ></div>
       <Sun 
         height="0"

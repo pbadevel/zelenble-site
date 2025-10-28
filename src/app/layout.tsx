@@ -37,7 +37,6 @@ export default function RootLayout({
             {children}
             <Background />
             <StaticDecorations />
-            {/* <DownNavbar /> */}
           </main>
         </PageLoader>
       </body>
