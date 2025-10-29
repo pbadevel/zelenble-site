@@ -109,19 +109,22 @@ const UpNavBar = () => {
 
 
             {/* Left Navigation - Desktop */}
-            <nav className="mx-10 max-md:hidden md:flex items-center gap-4 flex">
-              {navigationItems.map((item)=>(
-                <Link href={item.href} className="flex flex-nowrap transition-colors duration-500 hover:text-[var(--navbar-text-hover)] font-medium">
-                  <p className='flex flex-nowrap'>{item.label}</p>
-                  <ChevronDownIcon className='text-white'/>
-                </Link>
-              ))}
-            </nav>
+            <nav className="mx-10 max-[60rem]:hidden flex items-center gap-4">
+            {navigationItems.map((item) => (
+              <Link 
+                href={item.href} 
+                className="flex flex-nowrap items-center transition-colors duration-500 hover:text-[var(--navbar-text-hover)] font-medium"
+              >
+                <p className='flex flex-nowrap whitespace-nowrap'>{item.label}</p>
+                <ChevronDownIcon className='text-white'/>
+              </Link>
+            ))}
+          </nav>
 
             {/* Center Logo */}
-            <div className="flex justify-center w-full flex-1">
+            <div className="flex justify-center w-full mx-3">
               <Link href="/" className="flex items-center">
-                <h1 className='text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
+                <h1 className='text-4xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
                   {process.env.NEXT_PUBLIC_COMPANY_NAME || 'AXONISIUM'}
                 </h1>
               </Link>
@@ -130,13 +133,13 @@ const UpNavBar = () => {
             {/* Right Section */}
             <div className="flex items-center justify-end flex-1 gap-6 pr-4">
               {/* Theme Switcher - Desktop */}
-              <div className="hidden md:flex">
+              <div className="hidden min-[60rem]:flex">
                 <ThemeSwitcher />
               </div>
 
               {/* Hamburger Menu - Mobile */}
               <div 
-                className="flex cursor-pointer md:hidden"
+                className="flex cursor-pointer min-[60rem]:hidden"
                 onClick={toggleSideMenu}
               >
                 {sideMenuOpened ? null : (

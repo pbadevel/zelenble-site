@@ -2,21 +2,19 @@ import { useEffect, useState } from "react";
 
 
 export const Loader = () => {
-    const [isLoading, setIsLoading] = useState(true);
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
     const handleLoad = () => {
         setProgress(100);
-        setTimeout(() => setIsLoading(false), 500);
     };
 
     // Имитация прогресса загрузки
     const progressInterval = setInterval(() => {
         setProgress(prev => {
-        if (prev >= 90) {
+        if (prev >= 100) {
             clearInterval(progressInterval);
-            return 90;
+            return 100;
         }
         return prev + 10;
         });
