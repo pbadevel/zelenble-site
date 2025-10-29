@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ThemeSwitcher } from './theme-switcher';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { CatalogIcon } from '@/components/ui/catalog';
 
 const UpNavBar = () => {
   const [sideMenuOpened, setSideMenuOpened] = useState(false);
@@ -91,24 +92,24 @@ const UpNavBar = () => {
         }`}
       >
         <div className="flex justify-center h-full">
-          <div className="h-20 flex w-full items-center justify-between  px-4 lg:px-8">
+          <div className="h-20 flex w-full items-center justify-between">
+            {/* Catalog */}
+            <div className="flex justify-center px-10 lg:flex-none max-sm:hidden">
+              <Link href="/catalog" className="flex items-center">
+                  <CatalogIcon className='mr-2'/>
+              </Link>
+            </div>
+
+
             {/* Start Logo If planshet */}
-            <div className="flex justify-center px-10 flex-1 lg:flex-none xl:hidden">
+            {/* <div className="flex justify-center px-10 flex-1 lg:flex-none xl:hidden">
               <Link href="/" className="flex items-center">
                 <h1 className='text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
                   {process.env.NEXT_PUBLIC_COMPANY_NAME || 'AXONISIUM'}
                 </h1>
               </Link>
-            </div>
+            </div> */}
 
-            {/* Catalog */}
-            <div className="flex justify-center px-10 flex-1 lg:flex-none max-xl:hidden">
-              <Link href="/catalog" className="flex items-center">
-                <h1 className='text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
-                  Каталог
-                </h1>
-              </Link>
-            </div>
 
             {/* Left Navigation - Desktop */}
             <nav className="max-md:hidden md:flex items-center gap-4 max-md:gap-8 xl:gap-14 flex-1">
@@ -130,7 +131,7 @@ const UpNavBar = () => {
             </nav>
 
             {/* Center Logo */}
-            <div className="flex justify-center px-10 flex-1 lg:flex-none max-xl:hidden">
+            <div className="flex justify-center px-10 flex-1 lg:flex-none">
               <Link href="/" className="flex items-center">
                 <h1 className='text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
                   {process.env.NEXT_PUBLIC_COMPANY_NAME || 'AXONISIUM'}
@@ -139,7 +140,7 @@ const UpNavBar = () => {
             </div>
 
             {/* Right Section */}
-            <div className="pl-4 flex items-center justify-end flex-1 gap-6">
+            <div className="flex items-center justify-end flex-1 gap-6">
               {/* Theme Switcher - Desktop */}
               <div className="hidden md:flex">
                 <ThemeSwitcher />
@@ -150,7 +151,7 @@ const UpNavBar = () => {
                 className="flex cursor-pointer md:hidden"
                 onClick={toggleSideMenu}
               >
-                {sideMenuOpened ? <X size={24} /> : <Menu size={24} />}
+                {sideMenuOpened ? null : <Menu size={24} />}
               </div>
             </div>
           </div>
@@ -161,12 +162,12 @@ const UpNavBar = () => {
           <>
             {/* Overlay */}
             <div 
-              className="fixed inset-0 bg-[var(--navbar-bg)] bg-opacity-50 z-40 lg:hidden"
+              className="fixed inset-0 bg-transparent bg-opacity-50 z-40 lg:hidden"
               onClick={toggleSideMenu}
             />
             
             {/* Side Menu */}
-            <div className="fixed top-0 right-0 h-full w-80 bg-[var(--background)] shadow-xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden">
+            <div className="fixed top-0 right-0 h-full w-80 bg-[var(--navbar-bg)] shadow-xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden">
               <div className="p-6 h-full flex flex-col">
                 
                 {/* Header and Close Button */}
@@ -215,3 +216,6 @@ const UpNavBar = () => {
 };
 
 export default UpNavBar;
+
+
+

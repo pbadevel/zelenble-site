@@ -43,7 +43,7 @@ export const CompanyInfo = () => {
         <div className="w-full h-screen flex items-center justify-center">
             <div className="text-center">
                 <div className="h-20 flex items-center justify-center">
-                    <h1 className="text-4xl font-light text-white tracking-widest uppercase">
+                    <h1 className="text-3xl md:text-5xl font-light text-[var(--text-foreground)] tracking-widest uppercase">
                         {displayedText.split('').map((letter, index) => {
                             return (
                             <span
@@ -61,7 +61,7 @@ export const CompanyInfo = () => {
                 </div>
                 
                 {/* Разделительная линия */}
-                <div className="w-24 h-px bg-white mx-auto mt-8 opacity-50 animate-pulse"></div>
+                <div className="w-24 h-px bg-[var(--foreground)] mx-auto mt-8 opacity-50 animate-pulse"></div>
 
                 <style jsx>{`
                     @keyframes glow {
