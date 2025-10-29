@@ -40,10 +40,11 @@ export const CompanyInfo = () => {
     }, [currentText]);
 
     return (
+    <>
         <div className="w-full h-screen flex items-center justify-center">
             <div className="text-center">
                 <div className="h-20 flex items-center justify-center">
-                    <h1 className="text-3xl md:text-5xl font-light text-[var(--text-foreground)] tracking-widest uppercase">
+                    <h1 className="text-3xl md:text-5xl font-light text-[var(--text-foreground)] tracking-widest uppercase flex flex-nowrap">
                         {displayedText.split('').map((letter, index) => {
                             return (
                             <span
@@ -86,6 +87,12 @@ export const CompanyInfo = () => {
                     }
                 `}</style>
             </div>
+        </div>     
+        <div className="w-full h-screen absolute top-0 left-0 bottom-0 right-0 z-[-9] bg-[transparent] flex justify-center">
+            <video autoPlay loop className='max-sm:w-full h-full bg-transparent' muted preload="none">
+                <source src="/video/watch-rotating.mp4" />
+            </video>
         </div>
+    </>
     );
 };

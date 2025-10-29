@@ -18,11 +18,6 @@ const Background = () => {
 
   return (
     <div className="w-full h-screen fixed top-0 left-0 bottom-0 right-0 z-[-10] bg-[var(--background)] transition-colors duration-300">
-      {/* <video src="/video/daniilPiskabril.webm" autoPlay></video> */}
-      {/* <Video/> */}
-      <video autoPlay loop style={{ width: '500px', height: '500px' }}>
-        <source src="/video/daniilPiskabril.webm" />
-      </video>
       <Particles
         particleColors={["#fcfcfc", "#006000", "#2e527a5a"]}
         particleCount={1000}
@@ -35,5 +30,6 @@ const Background = () => {
     </div>
   );
 };
+
 
 export default Background;

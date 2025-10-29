@@ -10,6 +10,7 @@ export default function Home() {
     <div>
         <section id="company">
           <CompanyInfo />
+         
           <CompanyTexts />
         </section>
         <section id="product">

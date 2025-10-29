@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ThemeSwitcher } from './theme-switcher';
-import { Menu, X } from 'lucide-react';
+import { ArrowDown, ChevronDownIcon, Menu, X } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { CatalogIcon } from '@/components/ui/catalog';
 
@@ -11,6 +11,13 @@ const UpNavBar = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const navigationItems = [
+    { href: '#devices', label: 'Устройства' },
+    { href: '#platform', label: 'Платформа' },
+    { href: '#medicine', label: 'Для врачей' },
+    { href: '#about', label: 'О нас' },
+  ]
 
   // Блокировка скролла когда меню открыто
   useEffect(() => {
@@ -87,51 +94,32 @@ const UpNavBar = () => {
 
   return (
       <header 
-        className={`fixed bg-[var(--navbar-bg)] top-0 left-0 z-50 w-full h-20 text-[var(--navbar-text)] backdrop-blur-[12.8px] transition-all duration-300 ease-out ${
+        className={`fixed bg-[var(--navbar-bg)] top-0 left-0 z-50 w-full h-20 text-[var(--navbar-text)] backdrop-blur-[12.8px] transition-all duration-500 ease-out ${
           isNavbarVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
         <div className="flex justify-center h-full">
           <div className="h-20 flex w-full items-center justify-between">
             {/* Catalog */}
-            <div className="flex justify-center px-10 lg:flex-none max-sm:hidden">
+            <div className="flex justify-center px-5 lg:flex-none">
               <Link href="/catalog" className="flex items-center">
-                  <CatalogIcon className='mr-2'/>
+                  <CatalogIcon />
               </Link>
             </div>
 
 
-            {/* Start Logo If planshet */}
-            {/* <div className="flex justify-center px-10 flex-1 lg:flex-none xl:hidden">
-              <Link href="/" className="flex items-center">
-                <h1 className='text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
-                  {process.env.NEXT_PUBLIC_COMPANY_NAME || 'AXONISIUM'}
-                </h1>
-              </Link>
-            </div> */}
-
-
             {/* Left Navigation - Desktop */}
-            <nav className="max-md:hidden md:flex items-center gap-4 max-md:gap-8 xl:gap-14 flex-1">
-              <Link href="#solutions" className="transition-colors duration-200 hover:text-[var(--navbar-text-hover)] font-medium">
-                Решения
-              </Link>
-              <Link href="#technology" className="transition-colors duration-200 hover:text-[var(--navbar-text-hover)] font-medium">
-                Технологии
-              </Link>
-              <Link href="#security" className="transition-colors duration-200 hover:text-[var(--navbar-text-hover)] font-medium">
-                Безопасность
-              </Link>
-              <Link href="#partners" className="transition-colors duration-200 hover:text-[var(--navbar-text-hover)] font-medium">
-                Партнеры
-              </Link>
-              <Link href="#news" className="transition-colors duration-200 hover:text-[var(--navbar-text-hover)] font-medium">
-                Новости
-              </Link>
+            <nav className="mx-10 max-md:hidden md:flex items-center gap-4 flex">
+              {navigationItems.map((item)=>(
+                <Link href={item.href} className="flex flex-nowrap transition-colors duration-500 hover:text-[var(--navbar-text-hover)] font-medium">
+                  <p className='flex flex-nowrap'>{item.label}</p>
+                  <ChevronDownIcon className='text-white'/>
+                </Link>
+              ))}
             </nav>
 
             {/* Center Logo */}
-            <div className="flex justify-center px-10 flex-1 lg:flex-none">
+            <div className="flex justify-center w-full flex-1">
               <Link href="/" className="flex items-center">
                 <h1 className='text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
                   {process.env.NEXT_PUBLIC_COMPANY_NAME || 'AXONISIUM'}
@@ -140,7 +128,7 @@ const UpNavBar = () => {
             </div>
 
             {/* Right Section */}
-            <div className="flex items-center justify-end flex-1 gap-6">
+            <div className="flex items-center justify-end flex-1 gap-6 pr-4">
               {/* Theme Switcher - Desktop */}
               <div className="hidden md:flex">
                 <ThemeSwitcher />
@@ -151,7 +139,13 @@ const UpNavBar = () => {
                 className="flex cursor-pointer md:hidden"
                 onClick={toggleSideMenu}
               >
-                {sideMenuOpened ? null : <Menu size={24} />}
+                {sideMenuOpened ? null : (
+                <div className='flex flex-nowrap'>
+                  <span className='pr-2'>Меню</span> <Menu size={24} />
+                </div>
+                )
+                }
+                
               </div>
             </div>
           </div>
@@ -162,17 +156,17 @@ const UpNavBar = () => {
           <>
             {/* Overlay */}
             <div 
-              className="fixed inset-0 bg-transparent bg-opacity-50 z-40 lg:hidden"
+              className="inset-0 bg-[var(--navbar-bg)] z-100 lg:hidden"
               onClick={toggleSideMenu}
             />
             
             {/* Side Menu */}
-            <div className="fixed top-0 right-0 h-full w-80 bg-[var(--navbar-bg)] shadow-xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden">
+            <div className="fixed top-0 right-0 h-full w-80 bg-transparent shadow-xl z-50 transform transition-transform duration-500 ease-in-out lg:hidden">
               <div className="p-6 h-full flex flex-col">
                 
                 {/* Header and Close Button */}
-                <div className="flex justify-between items-center mb-8">
-                  <h2 className="text-xl font-semibold text-[var(--text-primary)]">Меню</h2>
+                <div className="flex justify-end items-center">
+                  <h2 className="text-xl font-semibold text-[var(--text-primary)] px-3">Меню</h2>
                   <button 
                     onClick={toggleSideMenu}
                     className="p-2 hover:bg-[var(--bg-muted)] rounded-lg transition-colors"
@@ -182,13 +176,9 @@ const UpNavBar = () => {
                 </div>
 
                 {/* Mobile Navigation */}
-                <nav className="flex flex-col space-y-2 flex-1 bg-[var(--navbar-bg)]">
-                  {[
-                    { href: '#devices', label: 'Устройства' },
-                    { href: '#platform', label: 'Платформа' },
-                    { href: '#medicine', label: 'Для врачей' },
-                    { href: '#about', label: 'О нас' },
-                  ].map((item, index) => (
+                <nav className="rounded-t-xl flex flex-col space-y-2 flex-1 bg-[var(--navbar-bg)]">
+                  {
+                  navigationItems.map((item, index) => (
                     <Link 
                       key={index}
                       href={item.href} 
@@ -201,9 +191,9 @@ const UpNavBar = () => {
                 </nav>
 
                 {/* Theme Switcher in Mobile Menu */}
-                <div className="pt-6 border-t border-[var(--border-primary)]">
+                <div className="rounded-b-xl border-t border-[var(--border-primary)] bg-[var(--navbar-bg)]">
                   <div className="flex items-center justify-between">
-                    <span className="text-[var(--text-primary)] font-medium">Тема</span>
+                    <span className="py-4 px-4 text-[var(--text-primary)] rounded-lg transition-colors font-medium">Тема</span>
                     <ThemeSwitcher />
                   </div>
                 </div>

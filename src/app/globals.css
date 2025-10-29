@@ -80,7 +80,7 @@ body {
   --navbar-bg: rgba(81, 79, 79, 0.3);
   --navbar-text: #ffffff;
   --navbar-text-active: #ffffff;
-  --navbar-text-hover: #d4d4d4;
+  --navbar-text-hover: #00ffd5;
   --navbar-indicator: rgb(255, 255, 255);
   --navbar-indicator-hover: rgba(255, 255, 255, 0.8);
   
