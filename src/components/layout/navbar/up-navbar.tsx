@@ -109,7 +109,7 @@ const UpNavBar = () => {
 
 
             {/* Left Navigation - Desktop */}
-            <nav className="mx-10 max-[60rem]:hidden flex items-center gap-4">
+            <nav className="ml-5 max-[60rem]:hidden flex items-center gap-4">
             {navigationItems.map((item, index) => (
               <Link 
                 href={item.href} 
@@ -125,7 +125,7 @@ const UpNavBar = () => {
             {/* Center Logo */}
             <div className="flex justify-center w-full mx-3">
               <Link href="/" className="flex items-center">
-                <h1 className='text-4xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
+                <h1 className='text-4xl max-sm:text-2xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
                   {process.env.NEXT_PUBLIC_COMPANY_NAME || 'AXONISIUM'}
                 </h1>
               </Link>
@@ -145,7 +145,7 @@ const UpNavBar = () => {
               >
                 {sideMenuOpened ? null : (
                 <div className='flex flex-nowrap'>
-                  <span className='pr-2'>Меню</span> <Menu size={24} />
+                  <span className='pr-2 text-[var(--navbar-text-hover)]'>Меню</span> <Menu size={24} />
                 </div>
                 )
                 }

@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-const texts = process.env.NEXT_PUBLIC_SLOGANS?.split("|") ?? [process.env.NEXT_PUBLIC_COMPANY_NAME];
+const texts = (
+    process.env.NEXT_PUBLIC_SLOGANS?.split("|") 
+    || 
+    [process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"])
+    .map(
+        (slogan) => " "+slogan
+    )
 
 export const CompanyInfo = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,7 +49,7 @@ export const CompanyInfo = () => {
         <div className="w-full h-screen flex items-center justify-center">
             <div className="text-center">
                 <div className="h-20 flex items-center justify-center">
-                    <h1 className="text-3xl md:text-5xl font-light text-[var(--text-foreground)] tracking-widest uppercase flex flex-nowrap">
+                    <h1 className="text-2xl md:text-5xl font-light text-[var(--text-foreground)] max-w-[2000px] justify-center tracking-widest uppercase flex max-md:flex-wrap">
                         {displayedText.split('').map((letter, index) => {
                             return (
                             <span

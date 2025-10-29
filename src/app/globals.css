@@ -35,9 +35,12 @@ body {
   --navbar-bg: rgba(81, 79, 79, 0.3);
   --navbar-text: #000000;
   --navbar-text-active: #000000;
-  --navbar-text-hover: #151515;
+  --navbar-text-hover: #29655b;
   --navbar-indicator: rgba(0, 0, 0, 0.6);
   --navbar-indicator-hover: rgba(255, 255, 255, 0.8);
+
+  --navbar-catalog-color-square: #000000;
+  --navbar-catalog-fill-color-square-hover: #29655b;
   
   /* Brand colors for light theme */
   --primary: #1e40af;
@@ -80,10 +83,13 @@ body {
   --navbar-bg: rgba(81, 79, 79, 0.3);
   --navbar-text: #ffffff;
   --navbar-text-active: #ffffff;
-  --navbar-text-hover: #00ffd5;
+  --navbar-text-hover: #29655b;
   --navbar-indicator: rgb(255, 255, 255);
   --navbar-indicator-hover: rgba(255, 255, 255, 0.8);
   
+  --navbar-catalog-color-square: #ffffff;
+  --navbar-catalog-fill-color-square-hover: #29655b;
+
   /* Brand colors for dark theme */
   --primary: #3b82f6;
   --primary-hover: #60a5fa;
