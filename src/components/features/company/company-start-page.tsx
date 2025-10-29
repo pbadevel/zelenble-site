@@ -35,7 +35,7 @@ export const CompanyInfo = () => {
                 }, 2000);
             }
         }, 100);
-
+        isAnimating
         return () => clearInterval(typeWriter);
     }, [currentText]);
 

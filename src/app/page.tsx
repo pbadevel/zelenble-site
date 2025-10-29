@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { CompanyInfo } from "@/components/features/company/company-start-page";
 import { PersonalInfo } from "@/components/features/personal-info";
 import { ProductShowcase } from "@/components/features/product-info";

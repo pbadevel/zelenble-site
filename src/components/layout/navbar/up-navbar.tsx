@@ -110,9 +110,10 @@ const UpNavBar = () => {
 
             {/* Left Navigation - Desktop */}
             <nav className="mx-10 max-[60rem]:hidden flex items-center gap-4">
-            {navigationItems.map((item) => (
+            {navigationItems.map((item, index) => (
               <Link 
                 href={item.href} 
+                key={index}
                 className="flex flex-nowrap items-center transition-colors duration-500 hover:text-[var(--navbar-text-hover)] font-medium"
               >
                 <p className='flex flex-nowrap whitespace-nowrap'>{item.label}</p>
