@@ -3,8 +3,13 @@
 
 const CatalogPage = () => {
     return (
-        <div className="text-[var(--text-foreground)] items-center w-full h-full">
-            Catalog
+        <div className="pt-20 text-[var(--text-foreground)] w-full h-screen">
+            <div className="flex items-center justify-center"></div>
+            <div>
+                <h1>
+                    See Ya On Catalog!
+                </h1>
+            </div>
         </div>
     )
 }

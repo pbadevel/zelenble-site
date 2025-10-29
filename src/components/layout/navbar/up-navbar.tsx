@@ -85,12 +85,6 @@ const UpNavBar = () => {
       }
     };
   }, []);
-  //    Решения (ведет к блоку №3)
-  //   · Как это работает? (ведет к блоку №4)
-  //   · Технологии (ведет к блоку №5)
-  //   · Безопасность (ведет к блоку №6)
-  //   · Партнеры (ведет к блоку №7)
-  //   · Новости (ведет к блоку №9)
 
   return (
       <header 
@@ -132,7 +126,7 @@ const UpNavBar = () => {
             </div>
 
             {/* Right Section */}
-            <div className="flex items-center justify-end flex-1 gap-6 pr-4">
+            <div className="flex px-4 items-center justify-end flex-1 gap-6">
               {/* Theme Switcher - Desktop */}
               <div className="hidden min-[60rem]:flex">
                 <ThemeSwitcher />
@@ -140,12 +134,12 @@ const UpNavBar = () => {
 
               {/* Hamburger Menu - Mobile */}
               <div 
-                className="flex cursor-pointer min-[60rem]:hidden"
+                className="flex px-4 cursor-pointer min-[60rem]:hidden"
                 onClick={toggleSideMenu}
               >
                 {sideMenuOpened ? null : (
                 <div className='flex flex-nowrap'>
-                  <span className='pr-2 text-[var(--navbar-text-hover)]'>Меню</span> <Menu size={24} />
+                  <span className='pr-2 text-[var(--navbar-text)] hover:text-[var(--navbar-text-hover)]'>Меню</span> <Menu size={24} />
                 </div>
                 )
                 }
@@ -160,17 +154,16 @@ const UpNavBar = () => {
           <>
             {/* Overlay */}
             <div 
-              className="inset-0 bg-[var(--navbar-bg)] z-100 lg:hidden"
+              className="inset-0 bg-[var(--navbar-bg)] z-11 lg:hidden"
               onClick={toggleSideMenu}
             />
             
             {/* Side Menu */}
-            <div className="fixed top-0 right-0 h-full w-80 bg-transparent shadow-xl z-50 transform transition-transform duration-500 ease-in-out lg:hidden">
-              <div className="p-6 h-full flex flex-col">
+            <div className="fixed top-5 right-0 h-full w-70 bg-transparent shadow-xl z-10 transform transition-transform duration-500 ease-in-out lg:hidden">
+              <div className=" h-full flex flex-col">
                 
                 {/* Header and Close Button */}
-                <div className="flex justify-end items-center">
-                  <h2 className="text-xl font-semibold text-[var(--text-primary)] px-3">Меню</h2>
+                <div className="flex justify-end items-center mb-5">
                   <button 
                     onClick={toggleSideMenu}
                     className="p-2 hover:bg-[var(--bg-muted)] rounded-lg transition-colors"
@@ -180,13 +173,13 @@ const UpNavBar = () => {
                 </div>
 
                 {/* Mobile Navigation */}
-                <nav className="rounded-t-xl flex flex-col space-y-2 flex-1 bg-[var(--navbar-bg)]">
+                <nav className=" flex flex-col space-y-2 flex-1 bg-[var(--navbar-bg)]">
                   {
                   navigationItems.map((item, index) => (
                     <Link 
                       key={index}
                       href={item.href} 
-                      className="py-4 px-4 text-[var(--text-primary)] hover:bg-[var(--bg-muted)] rounded-lg transition-colors font-medium"
+                      className="py-4 px-4 text-[var(--navbar-text)] hover:bg-[var(--bg-muted)] rounded-lg transition-colors font-medium"
                       onClick={toggleSideMenu}
                     >
                       {item.label}
@@ -195,8 +188,8 @@ const UpNavBar = () => {
                 </nav>
 
                 {/* Theme Switcher in Mobile Menu */}
-                <div className="rounded-b-xl border-t border-[var(--border-primary)] bg-[var(--navbar-bg)]">
-                  <div className="flex items-center justify-between">
+                <div className="rounded-bl-xl border-t border-[var(--border-primary)] bg-[var(--navbar-bg)]">
+                  <div className="flex items-center justify-between mr-2">
                     <span className="py-4 px-4 text-[var(--text-primary)] rounded-lg transition-colors font-medium">Тема</span>
                     <ThemeSwitcher />
                   </div>

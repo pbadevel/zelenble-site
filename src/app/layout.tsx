@@ -33,8 +33,8 @@ export default function RootLayout({
       >
         <PageLoader>
           <UpNavBar />
-          <main className="min-h-screen w-full overflow-x-hidden">
-            {children}
+          <main className="w-full overflow-x-hidden">
+              {children}
             <Background />
             <StaticDecorations />
           </main>

@@ -12,12 +12,12 @@ const Background = () => {
 
   if (!mounted) {
     return (
-      <div className="w-full h-screen fixed top-0 left-0 bottom-0 right-0 z-[-10] bg-white dark:bg-black" />
+      <div className="w-full h-screen fixed top-0 left-0 bottom-0 right-0 z-[-100] bg-white dark:bg-black" />
     );
   }
 
   return (
-    <div className="w-full h-screen fixed top-0 left-0 bottom-0 right-0 z-[-10] bg-[var(--background)] transition-colors duration-300">
+    <div className="w-full h-screen fixed top-0 left-0 bottom-0 right-0 z-[-100] bg-[var(--background)] transition-colors duration-300">
       <Particles
         particleColors={["#fcfcfc", "#006000", "#2e527a5a"]}
         particleCount={1000}

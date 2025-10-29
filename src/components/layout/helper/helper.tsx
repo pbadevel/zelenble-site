@@ -9,9 +9,12 @@ const Helper = () => {
 
     return (
         <>
-            <div className="fixed bottom-12 right-12">
+            <div className="fixed bottom-5 right-5">
                 <button
-                    className="p-3 rounded-[5px] bg-transparent text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className={
+                        `p-3 rounded-[5px] bg-transparent 
+                        text-white shadow-lg ${helperIsOpen ? "outline-none ring-2 ring-blue-500 ring-offset-[0.1px]":""}`
+                    }
                     aria-label="Help"
                     onClick={() => setHelperIsOpen(!helperIsOpen)}
                 >
@@ -19,7 +22,7 @@ const Helper = () => {
                 </button>  
             </div>
             {helperIsOpen && ( 
-                <div className="fixed bottom-24 right-12 w-80 p-4 bg-[var(--background)] border border-white/10 rounded-lg shadow-lg z-50">
+                <div className="fixed bottom-24 right-5 w-80 p-4 bg-[var(--background)] border border-white/10 rounded-lg shadow-lg z-50">
                     <h3 className="text-lg font-semibold mb-2">Need Help?</h3>
                     <p className="text-sm mb-4">
                         If you have any questions or need assistance, feel free to reach out to our support team or check our FAQ section.
