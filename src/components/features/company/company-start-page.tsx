@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-// Тестовые данные
-const texts = [" ДОБРО ПОЖАЛОВАТЬ", " WELCOME", " AXONISIUM"];
+const texts = process.env.NEXT_PUBLIC_SLOGANS?.split("|") ?? [process.env.NEXT_PUBLIC_COMPANY_NAME];
 
 export const CompanyInfo = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
