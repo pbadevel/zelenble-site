@@ -13,9 +13,10 @@ export const CompanyTexts = () => {
           
           <div className="max-w-3xl mx-auto space-y-6">
             <p className="text-lg text-secondary leading-relaxed">
-              Интеллектуальная экосистема для мониторинга здоровья и экстренного реагирования. 
-              Наши медицинские устройства, объединенные единой платформой, работают круглосуточно, 
-              чтобы <span className="font-medium text-primary">предотвращать угрозы</span> и своевременно вызывать помощь.
+              Первая модульная экосистема для здоровья. <br />
+              <span className="font-medium text-[var(--primary)]">Начните</span> с умных часов и добавляйте только те датчики, 
+              которые нужны вам — от давления и ЭКГ до анализа состава пота. 
+              Получайте не просто данные, а <span className="font-medium text-[var(--primary)]">готовность к действию</span>
             </p>
             <p className="text-lg text-secondary leading-relaxed">
               Персонализируйте свой браслет, оставаясь на связи с теми, кому доверяете.
