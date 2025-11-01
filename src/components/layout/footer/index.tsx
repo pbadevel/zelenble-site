@@ -68,16 +68,17 @@ export const Footer = () => {
             </div>
 
             {/* Соцсети */}
-            <div className="flex items-center space-x-4">
-              {socialLinks.map((social, index) => (
-                <SocialLink
-                    key={index}
-                    href={social.url}
-                    name={social.name}
-                    icon="↗"
-                />
-              ))}
-            </div>
+            <div className="max-md:grid flex min-md:mx-3 grid-cols-2 gap-4">
+                {socialLinks.map((social, index) => (
+                    <div key={index}>
+                    <SocialLink
+                        href={social.url}
+                        name={social.name}
+                        icon="↗"
+                    />
+                    </div>
+                ))}
+                </div>
           </div>
 
           {/* Язык и копирайт */}
