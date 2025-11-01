@@ -50,7 +50,6 @@ const UpNavBar = () => {
       label: 'О нас',
       options: [
         { href: '/company', label: 'Компания' },
-        { href: '/team', label: 'Команда' },
         { href: '/careers', label: 'Карьера' },
         { href: '/contacts', label: 'Контакты' }
       ]

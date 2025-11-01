@@ -10,7 +10,7 @@ const texts = (
         (slogan) => " "+slogan
     )
 
-export const CompanyInfo = () => {
+export const MainPage = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [displayedText, setDisplayedText] = useState("");
     const [isAnimating, setIsAnimating] = useState(false);
