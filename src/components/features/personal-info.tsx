@@ -3,7 +3,7 @@ import { CoLeaders, TeamMember } from "@/lib/personal-data"
 
 export const PersonalInfo = () => {
   return (
-    <div className="min-h-screen bg-transparent py-4 sm:py-6 lg:py-8">
+    <div className="bg-transparent py-4 sm:py-6 lg:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Заголовок */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
@@ -12,7 +12,7 @@ export const PersonalInfo = () => {
         </div>
 
         {/* Список сотрудников */}
-        <div className="space-y-6 sm:space-y-8 lg:space-y-12 mb-12">
+        <div className="space-y-6 sm:space-y-8 lg:space-y-12">
           {CoLeaders.map((member) => (
             <Person 
               key={member.id}
@@ -20,15 +20,11 @@ export const PersonalInfo = () => {
             />
           ))}
         </div>
-        
-        {/* Добавляем отступ внизу, чтобы футер не прилипал к контенту */}
-        <div className="h-8 sm:h-12 lg:h-16"></div>
       </div>
     </div>
   )
 }
 
-// Компонент Person остается без изменений
 interface PersonProps {
   member: TeamMember
 }

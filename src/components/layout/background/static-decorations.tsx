@@ -7,7 +7,7 @@ import Helper from "../helper";
 export const StaticDecorations = () => {
     return (
         <>
-            <div className="fixed inset-1 pointer-events-none">
+            <div className="fixed inset-0 pointer-events-none">
                 {/* Горизонтальные линии */}
                 {/* <div className="absolute top-1/3 left-0 right-0 h-px bg-white/10"></div>
                 <div className="absolute top-2/3 left-0 right-0 h-px bg-white/10"></div>

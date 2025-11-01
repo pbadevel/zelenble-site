@@ -34,12 +34,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} bg-[var(--background)] antialiased h-full m-0 p-0`}
       >
         <PageLoader>
-          <div className="min-h-screen flex flex-col">
+          <div className="flex flex-col min-h-screen">
             <UpNavBar />
-            <main className="flex-1 w-full overflow-x-hidden">
-              <div className="">
-                {children}
-              </div>
+            <main className="flex-grow w-full">
+              {children}
               <StaticDecorations />
               <Background />
             </main>
@@ -50,6 +48,4 @@ export default function RootLayout({
     </html>
   );
 }
-
-
 
