@@ -26,7 +26,7 @@ export const Footer = () => {
               для вашего благополучия и медицинского мониторинга.
             </p>
           </div>
-         <div className="border-t border-text-secondary my-8 lg:my-12 md:hidden"></div>
+         <div className="border-t border-text-secondary my-4 md:hidden"></div>
 
 
           {/* Колонки с ссылками */}
@@ -43,14 +43,14 @@ export const Footer = () => {
                   </a>
                 ))}
               </nav>
-             <div className="lg:hidden border-t border-text-secondary my-8 lg:my-12"></div>
+             <div className="lg:hidden border-t border-text-secondary my-4"></div>
 
             </div>
           ))}
         </div>
 
         {/* Разделитель */}
-        <div className="border-t border-text-secondary my-8 lg:my-12 max-lg:hidden"></div>
+        <div className="border-t border-text-secondary my-4 max-lg:hidden"></div>
 
         {/* Нижняя часть */}
         <div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">

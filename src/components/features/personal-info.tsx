@@ -16,11 +16,6 @@ export const PersonalInfo = () => {
     }
   }, [isInView])
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
 
   const staggerChildren = {
     animate: {
@@ -33,7 +28,7 @@ export const PersonalInfo = () => {
   return (
     <motion.div
       ref={containerRef}
-      className="bg-transparent py-8 sm:pb-12 lg:pb-16"
+      className="bg-transparent pb-8 sm:pb-12 lg:pb-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Заголовок */}
@@ -122,14 +117,14 @@ export const Person = ({ member, index }: PersonProps) => {
       variants={fadeInUp}
       initial="initial"
       animate={isInView ? "animate" : "initial"}
-      className="flex flex-col lg:flex-row items-center lg:items-start gap-6 sm:gap-8 lg:gap-12 py-6 sm:py-8 lg:py-10 border-b border-[var(--border-primary)] last:border-b-0 backdrop-blur-sm bg-white/5 rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/10"
+      className="flex flex-col lg:flex-row items-center lg:items-start gap-6 sm:gap-8 lg:gap-12 py-6 sm:py-8 lg:py-10 border-b border-[var(--border-primary)] last:border-b-0 backdrop-blur-sm bg-white/5 rounded-3xl p-6 sm:p-8 lg:p-10 borde"
     >
       {/* Аватар */}
       <motion.div
         variants={imageAnimation}
         className={`flex-shrink-0 ${!member.imageIsFirst ? 'lg:order-3' : ''}`}
       >
-        <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-2xl overflow-hidden border-2 border-[var(--border-accent)] shadow-lg">
+        <div className="relative rounded-2xl overflow-hidden border-2 border-[var(--border-accent)] shadow-lg">
           <Image
             className="w-full h-full object-cover"
             alt={member.name}
