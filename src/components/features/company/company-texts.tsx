@@ -194,7 +194,7 @@ export const CompanyTexts = () => {
       <section className="max-w-4xl mx-auto px-4 text-center">
         <div className="bg-gradient-custom rounded-3xl p-12 border border-custom">
           <div className="text-4xl mb-6">🛡️</div>
-          <h2 className="text-4xl font-bold text-primary mb-6">
+          <h2 className="min-md:text-4xl text-xl font-bold text-primary mb-6 ">
             Конфиденциальность и безопасность ваших данных — наш приоритет
           </h2>
           <p className="text-lg text-secondary leading-relaxed mb-6">

@@ -303,12 +303,12 @@ const UpNavBar = () => {
           <>
             {/* Overlay */}
             <div 
-              className="fixed inset-0 bg-transparent bg-opacity-50 z-40 lg:hidden"
+              className="fixed inset-0 z-40 lg:hidden"
               onClick={toggleSideMenu}
             />
             
             {/* Side Menu */}
-            <div className="fixed top-0 right-0 h-full w-70 bg-[var(--navbar-bg)] shadow-xl z-50 transform transition-transform duration-500 ease-in-out lg:hidden">
+            <div className="fixed top-0 right-0 h-full w-70 shadow-xl z-50 transform transition-transform duration-500 ease-in-out lg:hidden">
               <div className="h-full flex flex-col">
                 {/* Header and Close Button */}
                 <div className="flex justify-end items-center p-4">
@@ -321,11 +321,11 @@ const UpNavBar = () => {
                 </div>
 
                 {/* Mobile Navigation */}
-                <nav className="flex flex-col space-y-2 flex-1 px-4">
+                <nav className="flex bg-[var(--navbar-mobile-bg)] flex-col space-y-2 flex-1 px-4 mt-2">
                   {navigationItems.map((item, index) => (
                     <div key={index} className="border-b border-[var(--border-primary)]">
                       <div 
-                        className="flex items-center justify-between py-4 text-[var(--navbar-text)] hover:text-[var(--navbar-text-hover)] transition-colors font-medium cursor-pointer"
+                        className="flex items-center  justify-between py-4 text-[var(--navbar-text)] hover:text-[var(--navbar-text-hover)] transition-colors font-medium cursor-pointer"
                         onClick={() => toggleMobileItem(index)}
                       >
                         <span>{item.label}</span>
@@ -358,7 +358,7 @@ const UpNavBar = () => {
                 </nav>
 
                 {/* Theme Switcher in Mobile Menu */}
-                <div className="border-t border-[var(--border-primary)] bg-[var(--navbar-bg)] p-4">
+                <div className="border-t border-[var(--border-primary)] bg-[var(--navbar-mobile-bg)] p-4">
                   <div className="flex items-center justify-between">
                     <span className="text-[var(--text-primary)] font-medium">Тема</span>
                     <ThemeSwitcher />

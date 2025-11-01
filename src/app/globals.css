@@ -33,6 +33,7 @@ body {
   
   /* Navbar */
   --navbar-bg: rgba(81, 79, 79, 0.3);
+  --navbar-mobile-bg: rgb(231, 228, 228);
   --navbar-text: #000000;
   --navbar-text-active: #000000;
   --navbar-text-hover: #29655b;
@@ -56,6 +57,7 @@ body {
   
   /* Background colors */
   --bg-card: #ffffff;
+  --bg-card-footer: #c6c8ca7d;
   --bg-card-hover: #f9fafb;
   --bg-muted: #f8fafc;
   --bg-gradient-from: #eff6ff;
@@ -81,6 +83,7 @@ body {
   
   /* Navbar */
   --navbar-bg: rgba(81, 79, 79, 0.3);
+  --navbar-mobile-bg: rgb(44, 44, 44);
   --navbar-text: #ffffff;
   --navbar-text-active: #ffffff;
   --navbar-text-hover: #29655b;
@@ -104,6 +107,7 @@ body {
   
   /* Background colors */
   --bg-card: #1f2937;
+  --bg-card-footer: #1f29375d;
   --bg-card-hover: #374151;
   --bg-muted: #111827;
   --bg-gradient-from: #1e3a8a;
@@ -135,6 +139,10 @@ body {
 /* Custom utility classes using CSS variables */
 .bg-card {
   background-color: var(--bg-card);
+}
+
+.bg-card-footer {
+  background-color: var(--bg-card-footer);
 }
 
 .bg-muted {

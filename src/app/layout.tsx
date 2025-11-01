@@ -5,6 +5,7 @@ import Background from "@/components/layout/background";
 import { StaticDecorations } from "@/components/layout/background/static-decorations";
 import UpNavBar from "@/components/layout/navbar/up-navbar";
 import PageLoader from "@/components/layout/page-loader";
+import { Footer } from "@/components/layout/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
   description: "MEGACOMPANY",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,14 +34,22 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} bg-[var(--background)] antialiased h-full m-0 p-0`}
       >
         <PageLoader>
-          <UpNavBar />
-          <main className="w-full overflow-x-hidden">
-              {children}
-            <Background />
-            <StaticDecorations />
-          </main>
+          <div className="min-h-screen flex flex-col">
+            <UpNavBar />
+            <main className="flex-1 w-full overflow-x-hidden">
+              <div className="">
+                {children}
+              </div>
+              <StaticDecorations />
+              <Background />
+            </main>
+            <Footer/>
+          </div>
         </PageLoader>
       </body>
     </html>
   );
 }
+
+
+

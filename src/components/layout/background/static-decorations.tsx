@@ -21,27 +21,11 @@ export const StaticDecorations = () => {
                 <div className="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-white/20"></div> */}
 
                 {/* Копирайт */}
-                <div className="absolute bottom-8 left-8 animate-fade-in-slow">
+                {/* <div className="absolute bottom-8 left-8 animate-fade-in-slow">
                     <p className="text-xs text-white font-light tracking-wider">
                         © {new Date().getFullYear()} • ALL RIGHTS RESERVED
                     </p>
-                </div>
-
-                {/* Социальные ссылки */}
-                <div className="absolute bottom-25 right-5 animate-fade-in-slow pointer-events-auto">
-                    <div className="flex flex-col items-end gap-4">
-                        <SocialLink
-                            href="https://t.me/pbadev" 
-                            name="Telegram"
-                            icon="↗"
-                        />
-                        <SocialLink 
-                            href="https://vk.com/pbadev" 
-                            name="VK"
-                            icon="↗"
-                        />
-                    </div>
-                </div>
+                </div> */}
             </div>
             <Helper />
         </>

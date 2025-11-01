@@ -40,19 +40,6 @@ export const CoLeaders: TeamMember[] = [
     },
     {
       id: 3,
-      name: "ShamilAra",
-      position: "Lead Hardware Engineer",
-      image: "/images/shamil.jpg",
-      description: [
-        "Разработка и проектирование электроники браслета-часов и модулей-датчиков",
-        "Выбор компонентов, проектирование печатных плат (PCB) и прототипирование",
-        "Написание низкоуровневого кода (прошивки, firmware) для сбора данных с датчиков",
-        "Обеспечение связи между модулями, основным блоком часов и смартфоном"
-      ],
-      imageIsFirst: true
-    },
-    {
-      id: 4,
       name: "Krivoyy",
       position: "Lead UX/UI & 3D Designer",
       image: "/images/nikita.jpg",
@@ -62,10 +49,10 @@ export const CoLeaders: TeamMember[] = [
         "Разработка инфографики и визуализации медицинских данных",
         "Оформление технической и пользовательской документации, связанной с аппаратной частью и дизайном"
       ],
-      imageIsFirst: false
+      imageIsFirst: true
     },
     {
-      id: 5,
+      id: 4,
       name: "Dima Pizda",
       position: "Team Lead 3D Development & Visualization",
       image: "/images/dima.jpg",
@@ -76,10 +63,10 @@ export const CoLeaders: TeamMember[] = [
         "Курирование 3D-визуализации интерфейсов и совместных проектов с UX/UI-дизайном",
         "Взаимодействие с другими командами (дизайн, hardware, продуктовый отдел) для обеспечения целостности визуальной концепции",
       ],
-      imageIsFirst: true
+      imageIsFirst: false
     },
     {
-      id: 6,
+      id: 5,
       name: "Roma Starosta",
       position: "Операционный директор (COO)",
       image: "/images/roma.jpg",
@@ -91,6 +78,6 @@ export const CoLeaders: TeamMember[] = [
         "Анализ рынка медицинских технологий и исследование трендов в области носимых устройств",
         "Организация тестирования аппаратной части и взаимодействия с производственными партнерами"
       ],
-      imageIsFirst: false
+      imageIsFirst: true
     }
   ]
