@@ -476,7 +476,7 @@ export const CompanyTexts = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center overflow-hidden pb-10">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center overflow-hidden pb-10 ">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
