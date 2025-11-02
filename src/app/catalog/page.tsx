@@ -1,12 +1,11 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const CatalogPage = () => {
   const [selectedModules, setSelectedModules] = useState<string[]>([])
-  const [activeTab, setActiveTab] = useState('axon-core')
 
   const coreRef = useRef<HTMLDivElement>(null)
   const homeRef = useRef<HTMLDivElement>(null)
@@ -80,8 +79,8 @@ const CatalogPage = () => {
   const calculateTotal = () => {
     const basePrice = 29900 // Цена базовых часов
     const modulesPrice = selectedModules.reduce((total, moduleId) => {
-      const module = modules.find(m => m.id === moduleId)
-      return total + (module?.price || 0)
+      const deviceModule = modules.find(m => m.id === moduleId)
+      return total + (deviceModule?.price || 0)
     }, 0)
     return basePrice + modulesPrice
   }
@@ -264,40 +263,40 @@ const CatalogPage = () => {
 
           {/* Сетка модулей */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {modules.map((module, index) => (
+            {modules.map((deviceModule, index) => (
               <motion.div
-                key={module.id}
+                key={deviceModule.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`p-6 rounded-2xl border-2 backdrop-blur-sm transition-all duration-300 cursor-pointer ${
-                  selectedModules.includes(module.id)
+                  selectedModules.includes(deviceModule.id)
                     ? 'border-primary bg-primary/10'
-                    : module.available
+                    : deviceModule.available
                     ? 'border-white/10 bg-white/5 hover:border-white/20'
                     : 'border-white/5 bg-white/5 opacity-60'
                 }`}
-                onClick={() => module.available && toggleModule(module.id)}
+                onClick={() => deviceModule.available && toggleModule(deviceModule.id)}
               >
                 <h3 className="text-xl font-medium text-[var(--text-primary)] mb-2">
-                  {module.name}
+                  {deviceModule.name}
                 </h3>
                 <p className="text-[var(--text-secondary)] mb-4 leading-relaxed">
-                  {module.description}
+                  {deviceModule.description}
                 </p>
                 <div className="flex justify-between items-center">
                   <span className={`px-3 py-1 rounded-full text-sm ${
-                    module.status === 'В продаже' 
+                    deviceModule.status === 'В продаже' 
                       ? 'bg-success/20 text-success' 
-                      : module.status === 'Скоро в продаже'
+                      : deviceModule.status === 'Скоро в продаже'
                       ? 'bg-warning/20 text-warning'
                       : 'bg-[var(--text-muted)]/20 text-[var(--text-muted)]'
                   }`}>
-                    {module.status}
+                    {deviceModule.status}
                   </span>
-                  {module.price > 0 && (
+                  {deviceModule.price > 0 && (
                     <span className="text-lg font-medium text-[var(--text-primary)]">
-                      {module.price.toLocaleString()} ₽
+                      {deviceModule.price.toLocaleString()} ₽
                     </span>
                   )}
                 </div>
@@ -326,11 +325,11 @@ const CatalogPage = () => {
                 ) : (
                   <ul className="space-y-2">
                     {selectedModules.map(moduleId => {
-                      const module = modules.find(m => m.id === moduleId)
-                      return module ? (
+                      const deviceModule = modules.find(m => m.id === moduleId)
+                      return deviceModule ? (
                         <li key={moduleId} className="text-[var(--text-primary)] flex justify-between">
-                          <span>{module.name}</span>
-                          <span>{module.price.toLocaleString()} ₽</span>
+                          <span>{deviceModule.name}</span>
+                          <span>{deviceModule.price.toLocaleString()} ₽</span>
                         </li>
                       ) : null
                     })}

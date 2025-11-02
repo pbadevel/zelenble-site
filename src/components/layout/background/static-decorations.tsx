@@ -1,6 +1,5 @@
 'use client';
 
-import { SocialLink } from "@/components/ui/social-media-link";
 import Helper from "../helper";
 
 

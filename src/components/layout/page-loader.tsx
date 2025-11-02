@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Loader } from '../ui/loader';
 
 const AdvancedPageLoader = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
