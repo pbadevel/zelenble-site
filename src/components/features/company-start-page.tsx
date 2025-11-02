@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const texts = (
     process.env.NEXT_PUBLIC_SLOGANS?.split("|") 
     || 
-    [process.env.NEXT_PUBLIC_COMPANY_NAME ?? " AXONISIUM"])
+    [" " + (process.env.NEXT_PUBLIC_COMPANY_NAME || "AXONISIUM")])
     .map(
         (slogan) => " "+slogan
     )
