@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import Link from 'next/link'
 
 export const CompanyInfo = () => {
 
@@ -90,7 +91,7 @@ export const CompanyInfo = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
                 >
-                <a className="text-[var(--primary)] font-medium hover:underline hover:cursor-pointer" href='/'>Axonisium</a> — это больше чем компания. 
+                <Link className="text-[var(--primary)] font-medium hover:underline hover:cursor-pointer" href="/">Axonisium</Link> — это больше чем компания. 
                 Это миссия, которую несут forward-thinkers, инженеры и дизайнеры, объединенные целью изменить парадигму заботы о здоровье.
                 </motion.p>
 
