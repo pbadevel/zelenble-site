@@ -2,10 +2,10 @@
 
 
 export const socialLinks = [
-    { name: "Telegram", url: "#" },
-    { name: "WhatsApp", url: "#" },
-    { name: "VK", url: "#" },
-    { name: "YouTube", url: "#" },
+    { name: "Telegram", url: "https://t.me/pbadev" },
+    { name: "WhatsApp", url: "https://t.me/pbadev" },
+    { name: "VK", url: "https://t.me/pbadev" },
+    { name: "YouTube", url: "https://t.me/pbadev" },
   ]
 
 
@@ -13,7 +13,7 @@ export const footerColumns = [
     {
       title: "",
       links: [
-        { name: "Устройства", url: "#" },
+        { name: "Устройства", url: "/catalog" },
         { name: "Платформа", url: "#" },
         { name: "Сервисы", url: "#" },
         { name: "Безопасность", url: "#" },
@@ -33,7 +33,7 @@ export const footerColumns = [
     {
       title: "",
       links: [
-        { name: "О нас", url: "#" },
+        { name: "О нас", url: "/company" },
         { name: "Блог", url: "#" },
         { name: "Контакты", url: "#" },
         { name: "Поддержка", url: "#" },
