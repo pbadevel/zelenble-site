@@ -9,9 +9,6 @@ export default function Home() {
           <MainPage />
           <CompanyTexts />
         </section>
-        {/* <section id="product">
-          <ProductShowcase />
-        </section> */}
       </div>
     );
 
