@@ -1,4 +1,4 @@
-import { MainPage } from "@/components/features/company/company-start-page";
+import { MainPage } from "@/components/features/company-start-page";
 import { ProductShowcase } from "@/components/features/product-info";
 import { CompanyTexts } from "@/components/features/company/company-texts";
 

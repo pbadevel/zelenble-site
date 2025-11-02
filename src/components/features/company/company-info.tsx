@@ -48,7 +48,7 @@ export const CompanyInfo = () => {
         <motion.div
             ref={containerRef}
             style={{ opacity, scale, y }}
-            className="text-[var(--text-foreground)] w-full min-h-screen relative overflow-hidden"
+            className="text-[var(--text-foreground)] w-full min-h-screen relative overflow-x-hidden"
         >
 
         {/* Основной контент */}
@@ -70,7 +70,7 @@ export const CompanyInfo = () => {
                 transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 100 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-light bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-6"
                 >
-                Axonisium
+                {process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"}
                 </motion.h1>
                 <motion.div
                 initial={{ width: 0 }}
@@ -91,7 +91,7 @@ export const CompanyInfo = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
                 >
-                <Link className="text-[var(--primary)] font-medium hover:underline hover:cursor-pointer" href="/">Axonisium</Link> — это больше чем компания. 
+                <Link className="text-[var(--primary)] font-medium hover:underline hover:cursor-pointer" href="/">{process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"}</Link> — это больше чем компания. 
                 Это миссия, которую несут forward-thinkers, инженеры и дизайнеры, объединенные целью изменить парадигму заботы о здоровье.
                 </motion.p>
 

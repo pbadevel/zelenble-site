@@ -1,5 +1,5 @@
-import { CompanyInfo } from "@/components/features/company/info"
-import { PersonalInfo } from "@/components/features/personal-info"
+import { CompanyInfo } from "@/components/features/company/company-info"
+import { PersonalInfo } from "@/components/features/team/personal-info"
 import { FallingImages } from "@/components/ui/falling-images-bg"
 
 

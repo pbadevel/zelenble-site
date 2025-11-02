@@ -1,9 +1,26 @@
 @import "tailwindcss";
 
+
+/* Убираем скроллбар для всех элементов кроме body */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+
+/* Для мобильных устройств - тонкий скроллбар */
+@media (max-width: 768px) {
+  body::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
 html {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
 }
 
 body {
@@ -14,11 +31,34 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 html, body {
   overflow-x: hidden;
   max-width: 100%;
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+/* Кастомный скроллбар для body если нужен */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--bg-muted);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+   background: var(--primary);
 }
 
 #__next {

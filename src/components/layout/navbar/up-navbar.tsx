@@ -269,7 +269,7 @@ const UpNavBar = () => {
             <div className="flex justify-center w-full mx-3">
               <Link href="/" className="flex items-center">
                 <h1 className='text-4xl max-sm:text-xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
-                  {process.env.NEXT_PUBLIC_COMPANY_NAME || 'AXONISIUM'}
+                  {process.env.NEXT_PUBLIC_COMPANY_NAME || "AXONISIUM"}
                 </h1>
               </Link>
             </div>

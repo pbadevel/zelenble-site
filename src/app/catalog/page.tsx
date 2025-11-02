@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { useState, useRef } from 'react'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const CatalogPage = () => {
   const [selectedModules, setSelectedModules] = useState<string[]>([])
@@ -108,7 +108,7 @@ const CatalogPage = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-6">
             Модульные часы «Axon»
           </h1>
-          <p className="text-xl lg:text-2xl text-[var(--text-secondary)] max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl lg:text-3xl text-[var(--text-secondary)] max-w-4xl mx-auto leading-relaxed font-semibold">
             Центр вашей экосистемы здоровья. Бесконечная кастомизация благодаря сменным датчикам-модулям.
           </p>
         </motion.div>
@@ -455,7 +455,7 @@ const CatalogPage = () => {
             </h2>
             <p className="text-lg lg:text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
               Мы постоянно работаем над новыми устройствами, которые будут бесшовно 
-              интегрироваться в платформу Axonisium.
+              интегрироваться в платформу {process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"}.
             </p>
           </motion.div>
 
@@ -520,7 +520,7 @@ const CatalogPage = () => {
               Сила — в интеграции
             </h2>
             <p className="text-lg lg:text-xl text-[var(--text-secondary)] max-w-4xl mx-auto mb-8 leading-relaxed">
-              Любое устройство Axonisium — не самостоятельный гаджет, а часть целого. 
+              Любое устройство {process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"} — не самостоятельный гаджет, а часть целого. 
               Все данные стекаются в ваш «Цифровой Двойник», где алгоритмы глубокой синергии 
               создают целостную картину вашего здоровья.
             </p>
@@ -528,7 +528,7 @@ const CatalogPage = () => {
             <div className="aspect-video relative max-w-4xl mx-auto rounded-2xl overflow-hidden border border-white/10">
               <Image
                 src="/images/ecosystem-schema.jpg"
-                alt="Схема интеграции экосистемы Axonisium"
+                alt={`Схема интеграции экосистемы ${process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"}`}
                 fill
                 className="object-cover"
               />

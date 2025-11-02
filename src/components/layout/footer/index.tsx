@@ -19,7 +19,7 @@ export const Footer = () => {
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
                 <span className="text-primary font-bold text-lg">A</span>
               </div>
-              <span className="text-xl font-semibold text-primary">Axonisium</span>
+              <span className="text-xl font-semibold text-primary">{process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"}</span>
             </div>
             <p className="text-secondary text-sm leading-relaxed max-w-md">
               Экосистема персонализированного здоровья. Современные технологии 
@@ -60,10 +60,10 @@ export const Footer = () => {
             <div className="text-center sm:text-left">
               <div className="text-secondary text-sm mb-1">Свяжитесь с нами</div>
               <a 
-                href="mailto:info@axonisium.com" 
+                href={`mailto:info@${process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"}.com`} 
                 className="text-primary hover:text-primary-hover transition-colors text-sm"
               >
-                info@axonisium.com
+                info@{process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"}.com
               </a>
             </div>
 
@@ -105,7 +105,7 @@ export const Footer = () => {
             {/* Копирайт */}
             <div className="text-center sm:text-right">
               <div className="text-secondary text-sm">
-                Axonisium © 2025. Все права защищены.
+                {process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"} © 2025. Все права защищены.
               </div>
               <div className="text-muted text-xs mt-1 max-w-xs">
                 Все устройства являются медицинскими. Требуется консультация специалиста.
