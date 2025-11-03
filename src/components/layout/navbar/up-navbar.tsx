@@ -31,9 +31,9 @@ const UpNavBar = () => {
       href: '#platform', 
       label: 'Платформа',
       options: [
-        { href: '/analytics', label: 'Аналитика данных' },
-        { href: '/api', label: 'API для разработчиков' },
-        { href: '/integrations', label: 'Интеграции' }
+        { href: '/platform', label: 'О платформе' },
+        { href: '/services', label: 'Сервисы' },
+        { href: '/security', label: 'Безопасность' }
       ]
     },
     { 
@@ -50,8 +50,9 @@ const UpNavBar = () => {
       label: 'О нас',
       options: [
         { href: '/company', label: 'Компания' },
-        { href: '/careers', label: 'Карьера' },
-        { href: '/contacts', label: 'Контакты' }
+        { href: '/contacts', label: 'Отзывы' },
+        { href: '/vacancy', label: 'Вакансии' },
+        { href: '/comments', label: 'FAQ' },
       ]
     },
   ];

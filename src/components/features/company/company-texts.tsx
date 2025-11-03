@@ -570,20 +570,6 @@ const MobileHowItWorks = () => {
                   : 'bg-[var(--bg-muted)] text-[var(--text-secondary)] border border-[var(--border-primary)]'
               }`}>
                 <span className="font-bold text-lg">{step.id}</span>
-                
-                {/* Connection Dot */}
-                {index < steps.length - 1 && (
-                  <motion.div 
-                    className={`absolute -bottom-6 w-3 h-3 rounded-full border-2 z-20 ${
-                      index < activeStep 
-                        ? 'bg-[var(--primary)] border-[var(--primary)] scale-125' 
-                        : 'bg-[var(--bg-card)] border-[var(--border-primary)]'
-                    }`}
-                    initial={{ scale: 0.8 }}
-                    animate={{ scale: index < activeStep ? 1.2 : 0.8 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
               </div>
             </div>
 

@@ -15,8 +15,8 @@ export const footerColumns = [
       links: [
         { name: "Устройства", url: "/catalog" },
         { name: "Платформа", url: "#" },
-        { name: "Сервисы", url: "#" },
-        { name: "Безопасность", url: "#" },
+        { name: "Сервисы", url: "/services" },
+        { name: "Безопасность", url: "/security" },
         { name: "Исследования и валидация", url: "#" },
         { name: "Новости и статьи", url: "#" },
       ]
@@ -35,8 +35,9 @@ export const footerColumns = [
       links: [
         { name: "О нас", url: "/company" },
         { name: "Блог", url: "#" },
-        { name: "Контакты", url: "#" },
+        { name: "Отзывы", url: "/comments" },
         { name: "Поддержка", url: "#" },
+        { name: "FAQ", url: "/faq" },
         { name: "Гарантии и обслуживание", url: "#" },
       ]
     },

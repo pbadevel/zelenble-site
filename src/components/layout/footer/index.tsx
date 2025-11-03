@@ -3,6 +3,7 @@
 import { SocialLink } from "@/components/ui/social-media-link";
 import { useState } from "react"
 import { footerColumns as columns, socialLinks } from "@/lib/footer-data";
+import Link from "next/link";
 
 export const Footer = () => {
   const [language, setLanguage] = useState("RU")
@@ -19,7 +20,7 @@ export const Footer = () => {
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
                 <span className="text-primary font-bold text-lg">A</span>
               </div>
-              <span className="text-xl font-semibold text-primary">{process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"}</span>
+              <Link href='/' className="text-xl font-semibold text-[var(--primary)]">{process.env.NEXT_PUBLIC_COMPANY_NAME ?? "AXONISIUM"}</Link>
             </div>
             <p className="text-secondary text-sm leading-relaxed max-w-md">
               Экосистема персонализированного здоровья. Современные технологии 
@@ -37,7 +38,7 @@ export const Footer = () => {
                   <a
                     key={linkIndex}
                     href={link.url}
-                    className="block text-secondary hover:text-primary hover:underline transition-colors duration-200 text-sm"
+                    className="block text-secondary hover:text-primary underline transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </a>
