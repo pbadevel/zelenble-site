@@ -24,7 +24,7 @@ const Helper = () => {
             </div>
             {helperIsOpen && ( 
                 <div className="fixed bottom-24 right-5 w-80 p-4 bg-[var(--background)] border border-white/10 rounded-lg shadow-lg z-50">
-                    <h3 className="text-lg font-semibold mb-2">Нужна помощь?</h3>
+                    <h3 className="text-lg font-semibold mb-2">Нужна помощь? </h3>
                     <p className="text-sm mb-4">
                         Если у вас есть вопросы или хотите проконсультироваться с представителем, перейдите на страницу FAQ.
                     </p>
