@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
 
 const AUTH_COOKIE_NAME = 'axonisium-auth'
-const AUTH_PASSWORD = process.env.NEXT_PUBLIC_AUTH_PASSWORD || 'axon2024'
+const AUTH_PASSWORD = process.env.NEXT_PUBLIC_AUTH_PASSWORD || 'axon2025'
 
 export default function AuthWrapper({
   children,
