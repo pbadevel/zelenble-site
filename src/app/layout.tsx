@@ -6,6 +6,8 @@ import { StaticDecorations } from "@/components/layout/background/static-decorat
 import UpNavBar from "@/components/layout/navbar/up-navbar";
 import PageLoader from "@/components/layout/page-loader";
 import { Footer } from "@/components/layout/footer";
+import AuthWrapper from "@/components/layout/auth/AuthWrapper";
+import ThemeWrapper from "@/components/layout/ThemeWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,21 +32,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-[var(--background)] antialiased h-full m-0 p-0 overflow-x-hidden`}
-      >
-        <PageLoader>
-          <div className="flex flex-col min-h-screen overflow-x-hidden"> {/* Добавлено overflow-x-hidden */}
-            <UpNavBar />
-            <main className="flex-grow w-full overflow-x-hidden"> {/* Добавлено overflow-x-hidden */}
-              {children}
-              <StaticDecorations />
-              <Background />
-            </main>
-            <Footer/>
-          </div>
-        </PageLoader>
-      </body>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} bg-[var(--background)] antialiased h-full m-0 p-0 overflow-x-hidden`}
+          >
+          <ThemeWrapper>
+            <PageLoader>
+              <AuthWrapper>
+                <div className="flex flex-col min-h-screen overflow-x-hidden"> {/* Добавлено overflow-x-hidden */}
+                  <UpNavBar />
+                  <main className="flex-grow w-full overflow-x-hidden"> {/* Добавлено overflow-x-hidden */}
+                    {children}
+                    <StaticDecorations />
+                  </main>
+                  <Footer/>
+                </div>
+              </AuthWrapper>
+            </PageLoader>
+            <Background />
+        </ThemeWrapper>
+        </body>
     </html>
   );
 }
