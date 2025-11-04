@@ -38,7 +38,7 @@ export const Footer = () => {
                   <a
                     key={linkIndex}
                     href={link.url}
-                    className="block text-secondary hover:text-primary underline transition-colors duration-200 text-sm"
+                    className={`block text-${link.color} hover:text-primary underline transition-colors duration-200 text-sm`}
                   >
                     {link.name}
                   </a>

@@ -36,7 +36,6 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} bg-[var(--background)] antialiased h-full m-0 p-0 overflow-x-hidden`}
           >
           <ThemeWrapper>
-            <PageLoader>
               <AuthWrapper>
                 <div className="flex flex-col min-h-screen overflow-x-hidden"> {/* Добавлено overflow-x-hidden */}
                   <UpNavBar />
@@ -47,9 +46,8 @@ export default function RootLayout({
                   <Footer/>
                 </div>
               </AuthWrapper>
-            </PageLoader>
-            <Background />
-        </ThemeWrapper>
+          </ThemeWrapper>
+        <Background />
         </body>
     </html>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { Loader } from "../ui/loader";
+import AdvancedPageLoader from "./page-loader";
 
 
 
@@ -28,5 +28,6 @@ export default function ThemeWrapper({
         setMounted(true);
     }, []);
 
-    return mounted ? children : <Loader />
+    return <AdvancedPageLoader>{children}</AdvancedPageLoader>
+    
 }
