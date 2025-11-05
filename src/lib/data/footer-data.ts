@@ -13,7 +13,7 @@ export const footerColumns = [
     title: "",
     links: [
       { name: "Устройства", url: "/catalog", color: "secondary" },
-      { name: "Платформа", url: "#", color: "red-500" },
+      { name: "Платформа", url: "/platform", color: "secondary" },
       { name: "Сервисы", url: "/services", color: "secondary" },
       { name: "Безопасность", url: "/security", color: "secondary" },
       { name: "Исследования и валидация", url: "#", color: "red-500" },

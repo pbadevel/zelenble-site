@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from "next/image"
-import { CoLeaders, TeamMember } from "@/lib/personal-data"
+import { CoLeaders, TeamMember } from "@/lib/data/personal-data"
 
 export const PersonalInfo = () => {
   const containerRef = useRef<HTMLDivElement>(null)

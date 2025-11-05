@@ -144,7 +144,7 @@ export default function AuthWrapper({
       {/* Кнопка выхода в углу */}
       <button
         onClick={handleLogout}
-        className="fixed top-4 right-4 z-50 bg-[var(--bg-card)] hover:bg-[var(--bg-muted)] border border-[var(--border-primary)] hover:border-[var(--primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
+        className="fixed top-22 right-4 z-50 bg-[var(--bg-card)] hover:bg-[var(--bg-muted)] border border-[var(--border-primary)] hover:border-[var(--primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
         title="Выйти"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

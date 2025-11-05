@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ThemeSwitcher } from './theme-switcher';
-import { ChevronDownIcon, Menu, X } from 'lucide-react';
+import { ChevronDownIcon, ChevronRight, Menu, UserLockIcon, X } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { CatalogIcon } from '@/components/ui/catalog';
 
@@ -269,7 +269,7 @@ const UpNavBar = () => {
             {/* Center Logo */}
             <div className="flex justify-center w-full mx-3">
               <Link href="/" className="flex items-center">
-                <h1 className='text-4xl max-sm:text-xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
+                <h1 className='text-4xl max-lg:text-2xl max-sm:text-xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent'>
                   {process.env.NEXT_PUBLIC_COMPANY_NAME || "AXONISIUM"}
                 </h1>
               </Link>
@@ -280,6 +280,13 @@ const UpNavBar = () => {
               {/* Theme Switcher - Desktop */}
               <div className="hidden min-[60rem]:flex">
                 <ThemeSwitcher />
+              </div>
+
+               <div className="hidden min-[60rem]:flex">
+                <Link href="/loginIn" className='flex flex-col p-1'>
+                <UserLockIcon className='w-full'/>
+                <p className="flex text-primary whitespace-nowrap">AXON ID</p>
+                </Link>
               </div>
 
               {/* Hamburger Menu - Mobile */}
@@ -358,6 +365,17 @@ const UpNavBar = () => {
                 </nav>
 
                 {/* Theme Switcher in Mobile Menu */}
+                <div className="border-t border-[var(--border-primary)] bg-[var(--navbar-mobile-bg)] p-4">
+                  <div className="flex items-center justify-between">
+                    <Link href="/loginIn" className='w-full flex items-center justify-between'>
+                    <UserLockIcon/>
+                    <div className="flex">
+                      <p className="flex text-primary whitespace-nowrap">AXON ID</p>
+                      <ChevronRight className='ml-3' />
+                    </div>
+                    </Link>
+                  </div>
+                </div>
                 <div className="border-t border-[var(--border-primary)] bg-[var(--navbar-mobile-bg)] p-4">
                   <div className="flex items-center justify-between">
                     <span className="text-[var(--text-primary)] font-medium">Тема</span>

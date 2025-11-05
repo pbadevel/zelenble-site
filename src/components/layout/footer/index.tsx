@@ -2,7 +2,7 @@
 
 import { SocialLink } from "@/components/ui/social-media-link";
 import { useState } from "react"
-import { footerColumns as columns, socialLinks } from "@/lib/footer-data";
+import { footerColumns as columns, socialLinks } from "@/lib/data/footer-data";
 import Link from "next/link";
 
 export const Footer = () => {
