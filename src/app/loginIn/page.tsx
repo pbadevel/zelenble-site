@@ -1,6 +1,7 @@
 'use client';
 
 
+import { Eye, EyeClosedIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from "react";
@@ -11,6 +12,7 @@ function loginInAxonId() {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     
     const pathname = usePathname();
@@ -49,7 +51,9 @@ function loginInAxonId() {
         e.preventDefault()
         setError('')
 
-        if (password ) {
+        if (password.length === 0 ){setError("Введите пароль")}
+        else if (login.length === 0 ) {setError("Введите логин")}
+        else {
         // Устанавливаем куку на 3 часа
         // Cookies.set(AUTH_COOKIE_NAME, password, { 
         //     expires: 3 / 24, // 3 часа в днях
@@ -61,9 +65,7 @@ function loginInAxonId() {
         setPassword('')
         
         // Обновляем страницу для применения авторизации
-        router.refresh();
-        } else {
-        setError('Неверный пароль')
+        router.push('/');
         }
     }
 
@@ -90,15 +92,21 @@ function loginInAxonId() {
                 autoFocus
               />
             </div>
-            <div>
+            <div className='relative'>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Пароль"
-                className="w-full px-4 py-3 bg-[var(--bg-muted)] border border-[var(--border-primary)] rounded-2xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-primary transition-colors"
+                className="w-full px-4 py-3 bg-[var(--bg-muted)] border border-[var(--border-primary)] rounded-2xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-primary transition-colors pr-12"
                 autoFocus
               />
+               <div 
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+                  onClick={() => setShowPassword(!showPassword)}
+              >
+                  {showPassword ? <Eye /> : <EyeClosedIcon />}
+              </div>
             </div>
 
             {error && (

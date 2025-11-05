@@ -1,6 +1,7 @@
 'use client';
 
 
+import { Eye, EyeClosedIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from "react";
@@ -10,7 +11,12 @@ import { useEffect, useState } from "react";
 function loginInAxonId() {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
     const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
+    const [password1, setPassword1] = useState('');
+    const [password2, setPassword2] = useState('');
+
+    const [showPassword1, setShowPassword1] = useState(false);
+    const [showPassword2, setShowPassword2] = useState(false);
+    
     const [error, setError] = useState('');
     
     const pathname = usePathname();
@@ -45,26 +51,37 @@ function loginInAxonId() {
         return () => clearInterval(interval)
     }, [])
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleRegister = (e: React.FormEvent) => {
         e.preventDefault()
         setError('')
+        let errorMessage = 'Пароли не совпадают'
 
-        if (password ) {
-        // Устанавливаем куку на 3 часа
-        // Cookies.set(AUTH_COOKIE_NAME, password, { 
-        //     expires: 3 / 24, // 3 часа в днях
-        //     secure: process.env.NODE_ENV === 'production',
-        //     sameSite: 'strict'
-        // })
+        if ((password1 === password2) && (password1 + password2 != '')) {
+            console.log(login.length)
+            if (login.length < 4) {
+              errorMessage = 'Логин должен быть больше 3 символов!'
+              console.log('SMALL LOGIN')
+            } else {
+              setIsAuthenticated(true)
+              setPassword1('')
+              setPassword2('')
+              
+              console.log('REGISTERATION SUCCESS')
+              alert("Успешно!")
+
+              router.push('/');
+            }
+            
+        } 
         
-        setIsAuthenticated(true)
-        setPassword('')
+        setError(errorMessage)
         
-        // Обновляем страницу для применения авторизации
-        router.refresh();
-        } else {
-        setError('Неверный пароль')
-        }
+    }
+
+
+    const handleShowPassword = (id: number) => {
+        if (id===1) {setShowPassword1(!showPassword1)} 
+        else {setShowPassword2(!showPassword2)}
     }
 
     return (
@@ -79,7 +96,7 @@ function loginInAxonId() {
             </p>
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-6">
+          <form onSubmit={handleRegister} className="space-y-6">
             <div>
               <input
                 type="text"
@@ -90,17 +107,39 @@ function loginInAxonId() {
                 autoFocus
               />
             </div>
-            <div>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Пароль"
-                className="w-full px-4 py-3 bg-[var(--bg-muted)] border border-[var(--border-primary)] rounded-2xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-primary transition-colors"
-                autoFocus
-              />
+            <div className='relative'>
+                <input
+                    type={showPassword1 ? "text" : "password"}
+                    value={password1}
+                    onChange={(e) => setPassword1(e.target.value)}
+                    placeholder="Пароль"
+                    className="w-full px-4 py-3 bg-[var(--bg-muted)] border border-[var(--border-primary)] rounded-2xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-primary transition-colors pr-12"
+                    autoFocus
+                />
+                <div 
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+                    onClick={() => handleShowPassword(1)}
+                >
+                    {showPassword1 ? <Eye /> : <EyeClosedIcon />}
+                </div>
             </div>
 
+            <div className='relative'>
+              <input
+                type={showPassword2 ? "text" : "password"}
+                value={password2}
+                onChange={(e) => setPassword2(e.target.value)}
+                placeholder="Повторите пароль"
+                className="w-full px-4 py-3 bg-[var(--bg-muted)] border border-[var(--border-primary)] rounded-2xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-primary transition-colors pr-12"
+                autoFocus
+              />
+              <div 
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+                    onClick={() => handleShowPassword(2)}
+                >
+                    {showPassword1 ? <Eye /> : <EyeClosedIcon />}
+                </div>
+            </div>
             {error && (
               <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-sm">
                 {error}

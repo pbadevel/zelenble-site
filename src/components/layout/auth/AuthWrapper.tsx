@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
+import { LogOut } from 'lucide-react'
 
 const AUTH_COOKIE_NAME = 'axonisium-auth'
 const AUTH_PASSWORD = process.env.NEXT_PUBLIC_AUTH_PASSWORD || 'axon2024'
@@ -147,9 +148,7 @@ export default function AuthWrapper({
         className="fixed top-22 right-4 z-50 bg-[var(--bg-card)] hover:bg-[var(--bg-muted)] border border-[var(--border-primary)] hover:border-[var(--primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
         title="Выйти"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-        </svg>
+        <LogOut />
       </button>
 
       {children}
